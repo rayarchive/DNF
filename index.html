@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DNF Graveyard 📚☠️</title>
+<title>DNF Graveyard 📚</title>
 <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
 <style>
   /* ══ TEMA AUTOMÁTICO (segue o dispositivo) ══ */
@@ -339,7 +339,7 @@
     0%   { transform: translateX(-50%) translateY(100%); opacity: 0; }
     74%  { transform: translateX(-50%) translateY(36%);  opacity: 0; }
     75%  { transform: translateX(-50%) translateY(34%);  opacity: 1; }
-    100% { transform: translateX(-50%) translateY(22%);  opacity: 1; }
+    100% { transform: translateX(-50%) translateY(5%);  opacity: 1; }
   }
 
   /* ══ BOTÃO DELETAR ══ */
@@ -547,34 +547,34 @@
 </button>
 
 <header>
-  <h1>☠ DNF Graveyard ☠</h1>
+  <h1>DNF Graveyard</h1>
   <p>Aqui jazem os livros que não sobreviveram ao meu TBR</p>
 </header>
 
 <div id="graveyard">
-  <p class="empty-msg" id="emptyMsg">O cemitério está vazio… por enquanto. ⚰</p>
+  <p class="empty-msg" id="emptyMsg">O cemitério está vazio… por enquanto</p>
 </div>
 
 <div class="toast" id="toast"></div>
 
 <div id="panel">
   <div class="panel-tab">
-    <button class="panel-toggle" onclick="togglePanel()">⚰ Enterrar um Livro ⚰</button>
+    <button class="panel-toggle" onclick="togglePanel()">Enterrar um Livro</button>
   </div>
   <div class="panel-body" id="panelBody">
     <h2>Registrar Abandono</h2>
     <div class="form-row">
       <label>Título da Obra</label>
-      <input type="text" id="inputTitle" placeholder="Ex: O Nome do Vento..." maxlength="60">
+      <input type="text" id="inputTitle" placeholder="Ex: Bastian..." maxlength="500">
     </div>
     <div class="form-row">
-      <label>Link (Goodreads, Amazon, etc.)</label>
-      <input type="url" id="inputUrl" placeholder="https://www.goodreads.com/book/...">
+      <label>Link</label>
+      <input type="url" id="inputUrl" placeholder="https://www.webtoon.com/book/...">
     </div>
-    <button class="bury-btn" onclick="buryBook()">⚰ Dar Adeus &amp; Enterrar</button>
+    <button class="bury-btn" onclick="buryBook()">Dar Adeus &amp; Enterrar</button>
     <p class="counter" id="counter"></p>
 
-    <button class="backup-btn" onclick="toggleBackup()">📋 Backup / Restaurar Dados</button>
+    <button class="backup-btn" onclick="toggleBackup()">Backup / Restaurar Dados</button>
     <div class="backup-area" id="backupArea">
       <label>Código de backup (compatível com Notion)</label>
       <textarea id="backupText" spellcheck="false" placeholder="Cole aqui um backup para restaurar, ou gere um novo abaixo..."></textarea>
@@ -662,7 +662,7 @@
         wrap.classList.toggle('revived');
         chanceBtn.title = wrap.classList.contains('revived') ? 'Cancelar nova chance' : 'Dar uma nova chance!';
         if (wrap.classList.contains('revived')) {
-          showToast('🧟 Uma mão do além reclama "' + book.title + '"...');
+          showToast('Uma mão do além reclama "' + book.title + '"...');
         }
       };
 
@@ -757,11 +757,11 @@
     const ta = document.getElementById('backupText');
     ta.value = md;
     if (navigator.clipboard) {
-      navigator.clipboard.writeText(md).then(() => showToast('📋 Backup copiado para a área de transferência!'));
+      navigator.clipboard.writeText(md).then(() => showToast('Backup copiado para a área de transferência!'));
     } else {
       ta.select();
       document.execCommand('copy');
-      showToast('📋 Backup copiado!');
+      showToast('Backup copiado!');
     }
   }
 
