@@ -79,10 +79,18 @@
     font-family: 'IM Fell English', serif;
     color: var(--text-main);
     overflow-x: hidden;
-    background: transparent;
+    background: var(--bg-body);
   }
 
-  /* ══ BACKGROUND transparente — usa o fundo do sistema ══ */
+  :root { --bg-body: #0d120a; }
+  [data-theme="light"] { --bg-body: ##FFFFFF; }
+  [data-theme="dark"]  { --bg-body: #0d120a; }
+
+  @media (prefers-color-scheme: light) {
+    :root:not([data-theme="dark"]) { --bg-body: ##FFFFFF; }
+  }
+
+  /* ══ BACKGROUND ══ */
   .bg {
     display: none;
   }
@@ -338,7 +346,7 @@
   @keyframes zombieRise {
     0%   { transform: translateX(-50%) translateY(100%); opacity: 0; }
     74%  { transform: translateX(-50%) translateY(36%);  opacity: 0; }
-    75%  { transform: translateX(-50%) translateY(34%);  opacity: 1; }
+    75%  { transform: translateX(-50%) translateY(34%);  opacity: 0; }
     100% { transform: translateX(-50%) translateY(5%);  opacity: 1; }
   }
 
@@ -565,11 +573,11 @@
     <h2>Registrar Abandono</h2>
     <div class="form-row">
       <label>Título da Obra</label>
-      <input type="text" id="inputTitle" placeholder="Ex: Bastian..." maxlength="500">
+      <input type="text" id="inputTitle" placeholder="Ex: Bastian..." maxlength="200">
     </div>
     <div class="form-row">
       <label>Link</label>
-      <input type="url" id="inputUrl" placeholder="https://www.webtoon.com/book/...">
+      <input type="url" id="inputUrl" placeholder="https://www.webtoon.com/...">
     </div>
     <button class="bury-btn" onclick="buryBook()">Dar Adeus &amp; Enterrar</button>
     <p class="counter" id="counter"></p>
